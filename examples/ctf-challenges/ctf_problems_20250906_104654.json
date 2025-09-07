@@ -1,0 +1,247 @@
+{
+  "metadata": {
+    "export_date": "2025-09-06T10:46:54.085392",
+    "total_problems": 10,
+    "statistics": {
+      "total": 10,
+      "difficulty": {
+        "Easy": {
+          "count": 2,
+          "percentage": 20.0
+        },
+        "Medium": {
+          "count": 4,
+          "percentage": 40.0
+        },
+        "Hard": {
+          "count": 2,
+          "percentage": 20.0
+        },
+        "Expert": {
+          "count": 2,
+          "percentage": 20.0
+        }
+      },
+      "techniques": {
+        "LSB": 2,
+        "metadata": 1,
+        "file_format": 1,
+        "channel_analysis": 1,
+        "audio_lsb": 1,
+        "gif_analysis": 1,
+        "qr_reconstruction": 1,
+        "zip_bomb": 1,
+        "network_steganography": 1
+      },
+      "sources": {
+        "picoctf": 3,
+        "CSAW_2022": 1,
+        "DEFCON_2023": 1,
+        "BSides_2023": 1,
+        "ångstromCTF_2022": 1,
+        "GoogleCTF_2023": 1,
+        "HITCON_2023": 1,
+        "PlaidCTF_2023": 1
+      },
+      "years": {
+        "2023": 5,
+        "2022": 2,
+        "2021": 3
+      }
+    }
+  },
+  "problems": [
+    {
+      "id": "59d47184a1a3",
+      "title": "Information",
+      "description": "이미지 파일에서 숨겨진 정보를 찾으세요.",
+      "category": "steganography",
+      "technique": "metadata",
+      "difficulty": "Easy",
+      "source": "picoctf",
+      "year": 2021,
+      "points": 10,
+      "files": [],
+      "flag": "picoCTF{the_m3tadata_1s_modified}",
+      "solution": "exiftool 또는 strings 명령어로 메타데이터 확인",
+      "verification_script": null,
+      "tags": [],
+      "metadata": {},
+      "created_at": "2025-09-06T10:46:54.079356"
+    },
+    {
+      "id": "db99b89b319f",
+      "title": "Matryoshka doll",
+      "description": "러시아 인형처럼 중첩된 이미지에서 플래그를 찾으세요.",
+      "category": "steganography",
+      "technique": "LSB",
+      "difficulty": "Medium",
+      "source": "picoctf",
+      "year": 2021,
+      "points": 30,
+      "files": [],
+      "flag": "picoCTF{4cf7ac000c3fb0fa96fb92722ffb2a32}",
+      "solution": "binwalk로 숨겨진 파일 추출 후 LSB 분석",
+      "verification_script": null,
+      "tags": [],
+      "metadata": {},
+      "created_at": "2025-09-06T10:46:54.079982"
+    },
+    {
+      "id": "df07fda47ef0",
+      "title": "tunn3l v1s10n",
+      "description": "BMP 파일 헤더가 손상된 이미지를 복구하세요.",
+      "category": "steganography",
+      "technique": "file_format",
+      "difficulty": "Medium",
+      "source": "picoctf",
+      "year": 2021,
+      "points": 40,
+      "files": [],
+      "flag": "picoCTF{qu1t3_a_v13w_2020}",
+      "solution": "BMP 헤더 분석 및 수정",
+      "verification_script": null,
+      "tags": [],
+      "metadata": {},
+      "created_at": "2025-09-06T10:46:54.080545"
+    },
+    {
+      "id": "8b4093b142f9",
+      "title": "Hide and Seek",
+      "description": "PNG 이미지의 여러 채널에 숨겨진 데이터를 찾으세요.",
+      "category": "steganography",
+      "technique": "channel_analysis",
+      "difficulty": "Medium",
+      "source": "CSAW_2022",
+      "year": 2022,
+      "points": 250,
+      "files": [],
+      "flag": "flag{RGB_ch4nn3l_h1d1ng}",
+      "solution": "RGB 채널을 분리하여 각각 분석",
+      "verification_script": null,
+      "tags": [],
+      "metadata": {},
+      "created_at": "2025-09-06T10:46:54.081051"
+    },
+    {
+      "id": "6be5e3f28baf",
+      "title": "Invisible Ink",
+      "description": "이미지에 보이지 않는 워터마크가 숨겨져 있습니다.",
+      "category": "steganography",
+      "technique": "LSB",
+      "difficulty": "Easy",
+      "source": "DEFCON_2023",
+      "year": 2023,
+      "points": 100,
+      "files": [],
+      "flag": "DEFCON{1nv1s1bl3_w4t3rm4rk}",
+      "solution": "LSB 분석으로 숨겨진 텍스트 추출",
+      "verification_script": null,
+      "tags": [],
+      "metadata": {},
+      "created_at": "2025-09-06T10:46:54.081552"
+    },
+    {
+      "id": "134bc722aaa1",
+      "title": "Audio Secret",
+      "description": "MP3 파일에 숨겨진 음성 메시지를 찾으세요.",
+      "category": "steganography",
+      "technique": "audio_lsb",
+      "difficulty": "Hard",
+      "source": "BSides_2023",
+      "year": 2023,
+      "points": 400,
+      "files": [],
+      "flag": "BSides{4ud10_st3g4n0gr4phy}",
+      "solution": "Audacity 스펙트로그램 분석 또는 오디오 LSB",
+      "verification_script": null,
+      "tags": [],
+      "metadata": {},
+      "created_at": "2025-09-06T10:46:54.082058"
+    },
+    {
+      "id": "9e0f243e3dec",
+      "title": "Hacker Waifu",
+      "description": "애니메이션 이미지에 숨겨진 프레임을 분석하세요.",
+      "category": "steganography",
+      "technique": "gif_analysis",
+      "difficulty": "Medium",
+      "source": "ångstromCTF_2022",
+      "year": 2022,
+      "points": 200,
+      "files": [],
+      "flag": "actf{an1m3_g1rls_ar3nt_r34l}",
+      "solution": "GIF 프레임별 차이점 분석",
+      "verification_script": null,
+      "tags": [
+        "famous",
+        "real_ctf"
+      ],
+      "metadata": {},
+      "created_at": "2025-09-06T10:46:54.082576"
+    },
+    {
+      "id": "8b2a8b654c8a",
+      "title": "Broken QR",
+      "description": "손상된 QR 코드를 복원하여 플래그를 찾으세요.",
+      "category": "steganography",
+      "technique": "qr_reconstruction",
+      "difficulty": "Hard",
+      "source": "GoogleCTF_2023",
+      "year": 2023,
+      "points": 300,
+      "files": [],
+      "flag": "CTF{QR_c0d3_r3p41r}",
+      "solution": "QR 코드 에러 정정 기능 활용",
+      "verification_script": null,
+      "tags": [
+        "famous",
+        "real_ctf"
+      ],
+      "metadata": {},
+      "created_at": "2025-09-06T10:46:54.083242"
+    },
+    {
+      "id": "f98b21446495",
+      "title": "Zip Inside Zip",
+      "description": "무한히 중첩된 ZIP 파일에서 플래그를 찾으세요.",
+      "category": "steganography",
+      "technique": "zip_bomb",
+      "difficulty": "Expert",
+      "source": "HITCON_2023",
+      "year": 2023,
+      "points": 500,
+      "files": [],
+      "flag": "hitcon{z1p_1ns1d3_z1p_f0r3v3r}",
+      "solution": "스크립트로 자동 압축 해제 및 플래그 검색",
+      "verification_script": null,
+      "tags": [
+        "famous",
+        "real_ctf"
+      ],
+      "metadata": {},
+      "created_at": "2025-09-06T10:46:54.083966"
+    },
+    {
+      "id": "b04f0fea07dd",
+      "title": "Network Noise",
+      "description": "네트워크 패킷에 숨겨진 데이터를 찾으세요.",
+      "category": "steganography",
+      "technique": "network_steganography",
+      "difficulty": "Expert",
+      "source": "PlaidCTF_2023",
+      "year": 2023,
+      "points": 600,
+      "files": [],
+      "flag": "PCTF{p4ck3t_t1m1ng_st3g0}",
+      "solution": "패킷 타이밍 분석으로 숨겨진 비트 추출",
+      "verification_script": null,
+      "tags": [
+        "famous",
+        "real_ctf"
+      ],
+      "metadata": {},
+      "created_at": "2025-09-06T10:46:54.084661"
+    }
+  ]
+}

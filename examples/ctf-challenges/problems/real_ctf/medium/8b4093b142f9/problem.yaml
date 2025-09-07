@@ -1,0 +1,16 @@
+category: steganography
+created_at: '2025-09-06T10:46:54.081051'
+description: PNG 이미지의 여러 채널에 숨겨진 데이터를 찾으세요.
+difficulty: Medium
+files: []
+flag: flag{RGB_ch4nn3l_h1d1ng}
+id: 8b4093b142f9
+metadata: {}
+points: 250
+solution: RGB 채널을 분리하여 각각 분석
+source: CSAW_2022
+tags: []
+technique: channel_analysis
+title: Hide and Seek
+verification_script: null
+year: 2022

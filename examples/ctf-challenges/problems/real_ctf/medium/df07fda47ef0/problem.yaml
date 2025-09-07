@@ -1,0 +1,16 @@
+category: steganography
+created_at: '2025-09-06T10:46:54.080545'
+description: BMP 파일 헤더가 손상된 이미지를 복구하세요.
+difficulty: Medium
+files: []
+flag: picoCTF{qu1t3_a_v13w_2020}
+id: df07fda47ef0
+metadata: {}
+points: 40
+solution: BMP 헤더 분석 및 수정
+source: picoctf
+tags: []
+technique: file_format
+title: tunn3l v1s10n
+verification_script: null
+year: 2021

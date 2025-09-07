@@ -1,0 +1,18 @@
+category: steganography
+created_at: '2025-09-06T10:46:54.083966'
+description: 무한히 중첩된 ZIP 파일에서 플래그를 찾으세요.
+difficulty: Expert
+files: []
+flag: hitcon{z1p_1ns1d3_z1p_f0r3v3r}
+id: f98b21446495
+metadata: {}
+points: 500
+solution: 스크립트로 자동 압축 해제 및 플래그 검색
+source: HITCON_2023
+tags:
+- famous
+- real_ctf
+technique: zip_bomb
+title: Zip Inside Zip
+verification_script: null
+year: 2023
