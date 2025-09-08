@@ -94,8 +94,8 @@ py7zr>=0.20.0         # 7Z archive support
 
 ```
 steganography-cli-toolkit/
-├── analyze.py                    # Main analysis script
 ├── algorithms/                   # Detection algorithm implementations
+├── analyze.py                    # Main analysis script
 │   ├── lsb_analyzer.py          # LSB detection
 │   ├── dct_analyzer.py          # DCT analysis
 │   ├── dwt_analyzer.py          # DWT analysis
