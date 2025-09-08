@@ -1,5 +1,0 @@
-----
-
-Hint: These fork attributes are only found on the NTFS file system
-
-----

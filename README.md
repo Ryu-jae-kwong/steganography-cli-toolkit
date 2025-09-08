@@ -1,45 +1,50 @@
-# 🔐 Steganography CLI Toolkit v4.0
+# Steganography CLI Toolkit v5.0
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![CTF Success Rate](https://img.shields.io/badge/CTF%20Success%20Rate-100%25-brightgreen)](docs/v4.0_완전사용자가이드.md)
+[![Algorithms](https://img.shields.io/badge/algorithms-10%2B-brightgreen)](#algorithms)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)](README.md)
 
 **Professional Digital Forensics & Steganography Analysis Tool**
 
-A comprehensive command-line toolkit for steganography analysis, digital forensics, and CTF challenges. Achieved **100% CTF success rate** with advanced metadata analysis, statistical detection, and ZIP-to-Image conversion capabilities.
+A comprehensive command-line toolkit for steganography analysis, digital forensics, and CTF challenges. Features 10+ detection algorithms, multi-language support, and professional output formatting for security professionals and researchers.
 
-## ✨ Key Features
+## Key Features
 
-### 🎯 **Real-World Validated**
-- **100% CTF Success Rate**: Solved 3/3 real CTF challenges
-- **Production-Ready**: Used in actual digital forensics investigations
-- **Expert-Level Analysis**: Advanced metadata parsing and statistical anomaly detection
+### Advanced Algorithm Support
+- **10+ Detection Algorithms**: LSB, DCT, DWT, F5, BPCS, Alpha Channel, JSteg, PVD, Histogram Shifting, and more
+- **Professional Analysis**: Advanced metadata parsing, statistical anomaly detection
+- **Archive Support**: ZIP, RAR, 7Z file analysis capabilities
+- **Hash Verification**: MD5, SHA-1, SHA-256 integrity checking
 
-### 🔍 **Advanced Analysis Capabilities**
-- **Metadata Extraction**: PNG zTXt chunks, EXIF data, compressed metadata
-- **Statistical Analysis**: Multi-file comparison, anomaly detection, pattern recognition
-- **ZIP-Image Conversion**: Analyze files converted from ZIP to image formats
-- **Multi-Algorithm Support**: LSB, DCT, DWT, F5 steganography techniques
-- **Performance Monitoring**: Real-time benchmarking and optimization
+### Professional Output System
+- **5 Output Styles**: Minimal, Detailed, Compact, Structured, Progressive
+- **Multi-Language**: English and Korean localization support
+- **Clean Interface**: Professional formatting without emoji clutter
+- **Configurable**: Persistent user preferences and settings
 
-### 🚀 **Modern Architecture**
-- **4-Module Design**: Simplified from 42-file v3.0 to focused core modules
-- **Rich CLI Interface**: Beautiful terminal UI with progress bars and tables
-- **Parallel Processing**: Multi-threaded analysis for enhanced performance
+### Modern Architecture
+- **Single Command**: Simple `python analyze.py image.png` usage
+- **Modular Design**: Clean separation of algorithms and core systems
 - **Cross-Platform**: Windows, macOS, Linux support
+- **Performance Optimized**: Efficient analysis with comprehensive reporting
 
-## 🏆 CTF Success Stories
+## Algorithms
 
-### ✅ Solved Challenges
+The toolkit includes comprehensive steganography detection algorithms:
 
-| Challenge | Technique Used | Key Discovery |
-|-----------|----------------|---------------|
-| **Hit a Brick Wall** | PNG zTXt chunk analysis | Hex-encoded EXIF metadata in compressed chunks |
-| **Turtles All The Way Down** | Statistical anomaly detection | Password discovery in 20.png EXIF data |
-| **Hidden** | ZIP-to-Image conversion | Reconstructed winsock32.dll from pixel data |
+- **LSB (Least Significant Bit)**: Basic bit-plane analysis
+- **DCT (Discrete Cosine Transform)**: JPEG coefficient analysis  
+- **DWT (Discrete Wavelet Transform)**: Multi-level wavelet decomposition
+- **F5**: JPEG matrix encoding detection
+- **BPCS (Bit-Plane Complexity Segmentation)**: Complexity-based detection
+- **Alpha Channel**: PNG transparency analysis
+- **JSteg**: JPEG coefficient modification detection
+- **PVD (Pixel Value Differencing)**: Pixel difference analysis
+- **Histogram Shifting**: Histogram modification detection
+- **Statistical Analysis**: Entropy and distribution analysis
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -50,181 +55,174 @@ cd steganography-cli-toolkit
 
 # Install dependencies
 pip install -r requirements.txt
-
-# Run quick test
-python v4_main.py --quick-test
 ```
 
 ### Basic Usage
 
 ```bash
-# Quick system test
-python v4_main.py --quick-test
+# Analyze single image (default: minimal style, English)
+python analyze.py image.png
 
-# Analyze single image
-python v4_main.py --analyze image.png
+# Use different output styles
+python analyze.py image.png --style detailed
+python analyze.py image.png --style compact
 
-# Performance benchmark
-python v4_main.py --benchmark
+# Multi-language support
+python analyze.py image.png --lang korean
 
-# Help and options
-python v4_main.py --help
+# Comprehensive analysis
+python analyze.py image.png --comprehensive
 ```
 
-## 📋 System Requirements
+## System Requirements
 
 - **Python**: 3.8 or higher
 - **Memory**: 4GB RAM minimum, 8GB recommended
-- **Storage**: 2GB free space for analysis cache
 - **Platform**: Windows 10+, macOS 10.15+, Linux (Ubuntu 18.04+)
 
 ### Dependencies
 
 ```
-rich>=13.0.0          # Beautiful CLI interface
-psutil>=5.8.0         # System monitoring
 Pillow>=9.0.0         # Image processing
 numpy>=1.20.0         # Numerical analysis
-cryptography>=3.4.0   # Encryption support
+scipy>=1.7.0          # Scientific computing
+scikit-image>=0.18.0  # Image analysis
+PyWavelets>=1.3.0     # Wavelet transforms
+rarfile>=4.0          # RAR archive support
+py7zr>=0.20.0         # 7Z archive support
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 steganography-cli-toolkit/
-├── v4_main.py                 # Main CLI entry point
-├── v4_modules/               # Core v4.0 modules
-│   ├── cli_interface.py      # Rich-based CLI
-│   ├── batch_processor.py    # Parallel processing
-│   ├── performance_monitor.py # Benchmarking
-│   └── ctf_simulator.py      # CTF challenge simulation
-├── core/                     # Algorithm implementations
-│   ├── lsb.py               # LSB steganography
-│   ├── dct.py               # DCT algorithm
-│   ├── dwt.py               # DWT algorithm
-│   ├── f5.py                # F5 algorithm
-│   ├── statistical.py       # Statistical analysis
-│   └── metadata.py          # Metadata extraction
-├── examples/                 # Sample files and CTF challenges
-├── docs/                    # Complete documentation
-│   └── v4.0_완전사용자가이드.md
-├── tests/                   # Test suites
+├── analyze.py                # Main analysis script
+├── config/                   # Configuration management
+│   ├── config.py            # Settings and preferences
+│   └── localization.py      # Multi-language support
+├── core/                     # Core analysis engine
+│   └── comprehensive_analyzer.py  # Main analysis coordinator
+├── algorithms/               # Algorithm implementations
+│   ├── lsb_analyzer.py      # LSB detection
+│   ├── dct_analyzer.py      # DCT analysis
+│   ├── dwt_analyzer.py      # DWT analysis
+│   ├── f5_analyzer.py       # F5 detection
+│   ├── bpcs_analyzer.py     # BPCS analysis
+│   ├── alpha_analyzer.py    # Alpha channel analysis
+│   ├── jsteg_analyzer.py    # JSteg detection
+│   ├── pvd_analyzer.py      # PVD analysis
+│   └── histogram_analyzer.py # Histogram analysis
+├── output/                   # Output formatting
+│   └── output_formatter.py  # Multi-style formatting
+├── examples/                 # Test images and samples
 └── requirements.txt         # Python dependencies
 ```
 
-## 🔧 Advanced Features
+## Output Styles
 
-### Metadata Analysis
+The toolkit supports 5 professional output styles:
+
+### Minimal (Default)
+- Clean, concise results
+- Essential information only
+- Perfect for quick analysis
+
+### Detailed
+- Comprehensive analysis reports
+- Algorithm-specific findings
+- Technical details and metrics
+
+### Compact
+- Space-efficient formatting
+- Tabular data presentation
+- Ideal for batch processing
+
+### Structured
+- JSON-compatible output
+- Hierarchical data organization
+- Machine-readable format
+
+### Progressive
+- Step-by-step analysis display
+- Real-time progress indication
+- Interactive analysis experience
+
+## Configuration
+
+The toolkit maintains user preferences in a configuration file:
+
 ```bash
-# Extract and analyze PNG metadata
-python v4_main.py --analyze --metadata-deep image.png
+# View current configuration
+python analyze.py --show-config
 
-# Search for hidden text in compressed chunks
-python v4_main.py --analyze --chunk-analysis image.png
+# Set default output style
+python analyze.py --set-style detailed
+
+# Set default language
+python analyze.py --set-lang korean
+
+# Reset to defaults
+python analyze.py --reset-config
 ```
 
-### Statistical Detection
-```bash
-# Multi-file anomaly detection
-python v4_main.py --analyze --statistical folder/*.png
+## Version 5.0 Updates
 
-# Color distribution analysis
-python v4_main.py --analyze --color-stats image.png
-```
+### New Features
+- **10+ Algorithms**: Expanded from 4 to 10+ detection algorithms
+- **Professional Output**: 5 distinct formatting styles with clean, professional appearance
+- **Multi-Language**: Full English and Korean localization support
+- **Archive Analysis**: ZIP, RAR, 7Z file analysis capabilities
+- **Hash Verification**: MD5, SHA-1, SHA-256 integrity checking
+- **Configuration System**: Persistent user preferences and settings
+- **Simplified CLI**: Single-command usage with intuitive options
 
-### ZIP-Image Analysis
-```bash
-# Analyze ZIP-to-Image converted files
-python v4_main.py --analyze --zip-conversion suspicious.png
+### Architecture Improvements
+- **Modular Design**: Clean separation of algorithms, core system, and output formatting
+- **Professional Interface**: Removed emoji clutter for serious security work
+- **Performance Optimization**: Streamlined analysis pipeline
+- **Error Handling**: Robust exception handling and graceful degradation
+- **Code Quality**: Comprehensive refactoring for maintainability
 
-# Reconstruct original ZIP from image
-python v4_main.py --extract --reconstruct-zip image.png output.zip
-```
+### Breaking Changes
+- Command line interface changed from `v4_main.py` to `analyze.py`
+- Output format standardized across all algorithms
+- Configuration system replaces command-line flags for persistent settings
 
-## 📊 Performance Benchmarks
-
-| Operation | v3.0 Time | v4.0 Time | Improvement |
-|-----------|-----------|-----------|-------------|
-| Single Image Analysis | 15.2s | 3.8s | **4x faster** |
-| Multi-File Processing | 45.7s | 12.1s | **3.8x faster** |
-| Metadata Extraction | 8.3s | 1.2s | **6.9x faster** |
-| Statistical Analysis | 22.1s | 5.7s | **3.9x faster** |
-
-*Benchmarked on macOS with 16GB RAM, M1 Pro processor*
-
-## 🎓 Educational Use
+## Educational Use
 
 Perfect for:
-- **Digital Forensics Courses**: Real-world analysis techniques
-- **CTF Training**: Practice with solved challenge examples
+- **Digital Forensics Training**: Professional-grade analysis techniques
 - **Security Research**: Advanced steganography detection methods
-- **Academic Projects**: Well-documented, production-quality code
+- **Academic Projects**: Well-documented, production-quality codebase
+- **CTF Preparation**: Comprehensive algorithm coverage
 
-## 🤝 Contributing
+## Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+Contributions welcome! Please ensure:
+- Code follows existing style conventions
+- New algorithms include comprehensive tests
+- Documentation updated for new features
+- Localization strings added for both languages
 
-### Development Setup
-
-```bash
-# Clone and setup development environment
-git clone https://github.com/ryujaegwang/steganography-cli-toolkit.git
-cd steganography-cli-toolkit
-
-# Install development dependencies
-pip install -r requirements-dev.txt
-
-# Run tests
-python -m pytest tests/
-
-# Run linting
-python -m flake8 .
-```
-
-## 📚 Documentation
-
-- **[Complete User Guide](docs/v4.0_완전사용자가이드.md)**: 57-page comprehensive manual
-- **[API Documentation](docs/api-reference.md)**: Technical API reference
-- **[CTF Walkthroughs](examples/ctf-challenges/)**: Detailed challenge solutions
-- **[Algorithm Details](docs/algorithms.md)**: Technical implementation details
-
-## 🏅 Version History
-
-| Version | Key Features | CTF Success Rate |
-|---------|--------------|------------------|
-| v4.0.0 | Metadata analysis, Statistical detection, ZIP-Image conversion | **100% (3/3)** |
-| v3.0.0 | 42-file modular architecture, Audio support | 0% (0/3) |
-| v2.0.0 | CLI interface, Batch processing | 0% (0/3) |
-| v1.0.0 | Core algorithms (LSB, DCT, DWT, F5) | 0% (0/3) |
-
-## 🔒 Security & Ethics
+## Security & Ethics
 
 This tool is designed for:
-- ✅ **Defensive security research**
-- ✅ **Digital forensics investigation**
-- ✅ **Educational purposes**
-- ✅ **CTF challenges and training**
+- Defensive security research
+- Digital forensics investigation
+- Educational purposes
+- Authorized security testing
 
 Please use responsibly and in accordance with applicable laws and regulations.
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- Inspired by real CTF challenges from various competitions
-- Built with feedback from digital forensics professionals
-- Thanks to the steganography research community
-
-## 📞 Support & Contact
+## Support
 
 - **Issues**: [GitHub Issues](https://github.com/ryujaegwang/steganography-cli-toolkit/issues)
-- **Documentation**: [Complete Guide](docs/v4.0_완전사용자가이드.md)
-- **Examples**: [CTF Solutions](examples/ctf-challenges/)
+- **Documentation**: See examples directory for usage samples
 
 ---
 
-⭐ **Star this project** if it helps with your digital forensics work!
-
-**Made with ❤️ for the cybersecurity community**
+**Professional steganography analysis for security researchers**
