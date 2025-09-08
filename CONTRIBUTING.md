@@ -76,11 +76,11 @@ flake8 .
 # Run all tests
 python -m pytest
 
-# Run with coverage
-python -m pytest --cov=core --cov=v4_modules
+# Run analysis tests  
+python analyze.py test_image.png --style detailed
 
-# Run specific test file
-python -m pytest tests/test_lsb.py
+# Verify algorithm functionality
+python -c "from algorithms.lsb_analyzer import LSBAnalyzer; print('LSB OK')"
 ```
 
 ## 🚀 Pull Request Process
@@ -110,20 +110,21 @@ python -m pytest tests/test_lsb.py
 
 To add a new steganography algorithm:
 
-1. Create a new file in `core/` directory
+1. Create a new file in `algorithms/` directory
 2. Implement the base interface:
    ```python
-   class NewAlgorithm:
-       def embed_message(self, image_path, message, output_path, **kwargs):
+   class NewAlgorithmAnalyzer:
+       def analyze(self, image_path, **kwargs):
            # Implementation here
-           pass
-       
-       def extract_message(self, image_path, **kwargs):
-           # Implementation here
-           pass
+           # Return analysis results with confidence score
+           return {
+               'status': 'positive' or 'negative',
+               'confidence': float,  # 0.0 to 1.0
+               'details': {}
+           }
    ```
-3. Add tests in `tests/test_newalgorithm.py`
-4. Update factory pattern in `core/factory.py`
+3. Register in `core/comprehensive_analyzer.py`
+4. Test with `python analyze.py test_image.png`
 5. Add documentation
 
 ## 🐛 Bug Report Template
@@ -144,7 +145,7 @@ What you expected to happen.
 **Environment**
 - OS: [e.g. macOS 12.0]
 - Python Version: [e.g. 3.9.0]
-- Toolkit Version: [e.g. v4.0.0]
+- Toolkit Version: [e.g. v5.0.0]
 
 **Additional Context**
 Any other context about the problem.
