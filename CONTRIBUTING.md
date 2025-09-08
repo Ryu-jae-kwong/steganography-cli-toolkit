@@ -1,197 +1,143 @@
-# Contributing to Steganography CLI Toolkit
+# Contributing to Steganography CLI Toolkit v5.0
 
-Thank you for your interest in contributing to the Steganography CLI Toolkit! This document provides guidelines for contributing to the project.
+Professional steganography analysis toolkit contribution guidelines.
 
-## 🎯 Ways to Contribute
+## Ways to Contribute
 
-### 1. Bug Reports
-- Use GitHub Issues to report bugs
+### Bug Reports
+- Use GitHub Issues for bug reports
 - Include system information (OS, Python version)
-- Provide steps to reproduce the issue
-- Include error messages and stack traces
+- Provide reproduction steps with error messages
 
-### 2. Feature Requests
+### Feature Requests  
 - Describe the feature and its use case
-- Explain how it would benefit users
+- Explain benefits for security professionals
 - Consider implementation complexity
 
-### 3. Code Contributions
-- Fork the repository
-- Create a feature branch
-- Write clean, documented code
-- Add tests for new functionality
-- Ensure all tests pass
+### Code Contributions
+- Fork the repository and create feature branch
+- Follow existing code style and patterns
+- Ensure all functionality works before submission
 
-### 4. Documentation
-- Improve existing documentation
-- Add examples and tutorials
-- Translate documentation to other languages
-
-## 🛠️ Development Setup
+## Development Setup
 
 ```bash
-# Fork and clone the repository
-git clone https://github.com/yourusername/steganography-cli-toolkit.git
+git clone https://github.com/ryujaegwang/steganography-cli-toolkit.git
 cd steganography-cli-toolkit
-
-# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-pip install -r requirements-dev.txt
-
-# Run tests
-python -m pytest tests/
 ```
 
-## 📝 Code Style
+## Testing Your Changes
+
+```bash
+# Test basic functionality
+python analyze.py test_image.png
+
+# Test different output styles
+python analyze.py test_image.png --style detailed
+python analyze.py test_image.png --style compact
+
+# Verify algorithm imports
+python -c "from core.comprehensive_analyzer import ComprehensiveAnalyzer; print('Core OK')"
+```
+
+## Code Standards
 
 - Follow PEP 8 style guidelines
-- Use meaningful variable and function names
+- Use descriptive variable and function names
 - Add docstrings for classes and functions
 - Keep functions focused and small
 
-### Code Formatting
-```bash
-# Format code with black
-black .
+## Adding New Algorithms
 
-# Sort imports with isort
-isort .
-
-# Lint with flake8
-flake8 .
+1. Create new file in `algorithms/` directory following pattern:
+```python
+class NewAlgorithmAnalyzer:
+    def analyze(self, image_path, **kwargs):
+        # Implementation here
+        return {
+            'status': 'positive' or 'negative', 
+            'confidence': float,  # 0.0 to 1.0
+            'details': {}
+        }
 ```
 
-## 🧪 Testing
+2. Register in `core/comprehensive_analyzer.py`
+3. Test with: `python analyze.py test_image.png`
 
-- Write tests for new features
-- Ensure all existing tests pass
-- Aim for high test coverage
-- Use pytest for testing framework
+## Pull Request Process
 
-```bash
-# Run all tests
-python -m pytest
+1. Create issue to discuss major changes first
+2. Fork and create feature branch from main
+3. Implement changes following style guidelines  
+4. Test thoroughly with various image formats
+5. Submit PR with clear description of changes
 
-# Run analysis tests  
-python analyze.py test_image.png --style detailed
+### PR Requirements
+- Tests pass with sample images
+- Code follows existing patterns
+- No breaking changes to CLI interface
+- Clear commit messages
 
-# Verify algorithm functionality
-python -c "from algorithms.lsb_analyzer import LSBAnalyzer; print('LSB OK')"
+## Project Structure
+
+```
+steganography-cli-toolkit/
+├── analyze.py              # Main CLI entry point
+├── algorithms/             # Detection algorithms (10+ implementations)
+├── core/                   # Core analysis engine
+├── requirements.txt        # Dependencies
+├── README.md              # Documentation
+├── CONTRIBUTING.md        # This file
+└── LICENSE                # MIT License
 ```
 
-## 🚀 Pull Request Process
+## Bug Report Template
 
-1. **Create Issue**: Discuss major changes in an issue first
-2. **Fork & Branch**: Create a feature branch from main
-3. **Implement**: Write code following our style guidelines
-4. **Test**: Ensure all tests pass and add new tests
-5. **Document**: Update documentation as needed
-6. **Submit PR**: Provide clear description of changes
-
-### PR Checklist
-- [ ] Tests added and passing
-- [ ] Documentation updated
-- [ ] Code follows style guidelines
-- [ ] No breaking changes (or clearly marked)
-- [ ] Commit messages are clear
-
-## 🔍 Review Process
-
-- Maintainers will review PRs within 3-5 business days
-- Address feedback promptly
-- Keep PRs focused and reasonably sized
-- Be patient and respectful during review
-
-## 🎓 Adding New Algorithms
-
-To add a new steganography algorithm:
-
-1. Create a new file in `algorithms/` directory
-2. Implement the base interface:
-   ```python
-   class NewAlgorithmAnalyzer:
-       def analyze(self, image_path, **kwargs):
-           # Implementation here
-           # Return analysis results with confidence score
-           return {
-               'status': 'positive' or 'negative',
-               'confidence': float,  # 0.0 to 1.0
-               'details': {}
-           }
-   ```
-3. Register in `core/comprehensive_analyzer.py`
-4. Test with `python analyze.py test_image.png`
-5. Add documentation
-
-## 🐛 Bug Report Template
-
-```markdown
 **Bug Description**
-A clear description of the bug.
+Clear description of the issue.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. See error
-
-**Expected Behavior**
-What you expected to happen.
+**Reproduction Steps**
+1. Command executed
+2. Image file used
+3. Expected vs actual behavior
 
 **Environment**
-- OS: [e.g. macOS 12.0]
-- Python Version: [e.g. 3.9.0]
-- Toolkit Version: [e.g. v5.0.0]
+- OS: [e.g. macOS 13.0]
+- Python Version: [e.g. 3.9.0] 
+- Toolkit Version: v5.0
 
-**Additional Context**
-Any other context about the problem.
-```
+## Feature Request Template
 
-## 💡 Feature Request Template
-
-```markdown
 **Feature Description**
-Clear description of the feature you'd like to see.
+Clear description of proposed functionality.
 
-**Use Case**
-Why would this feature be useful? Who would benefit?
+**Use Case** 
+Why would this benefit security professionals?
 
-**Possible Implementation**
-If you have ideas about how to implement this feature.
+**Implementation Ideas**
+Suggestions for technical approach if any.
 
-**Additional Context**
-Any other context or screenshots about the feature.
-```
+## Security Guidelines
 
-## 🔒 Security Guidelines
-
-- Report security vulnerabilities privately
-- Don't commit sensitive data (keys, passwords)
+- Report security issues privately via GitHub
+- Do not commit sensitive data or credentials
 - Follow secure coding practices
-- Use the toolkit responsibly and legally
+- Use toolkit for authorized security testing only
 
-## 📚 Documentation Standards
+## Recognition
 
-- Use clear, concise language
-- Include code examples
-- Update README.md for user-facing changes
-- Add inline code comments for complex logic
-
-## 🏆 Recognition
-
-Contributors are recognized in:
+Contributors recognized in:
 - README.md contributors section
-- Release notes
 - GitHub contributors page
+- Release notes for significant contributions
 
-## ❓ Questions?
+## Questions
 
-- Check existing issues and documentation
-- Ask questions in GitHub Discussions
-- Reach out to maintainers
+- Check existing documentation and issues first
+- Use GitHub Issues for questions
+- Provide context and relevant details
 
-Thank you for contributing to the Steganography CLI Toolkit! 🎉
+Professional digital forensics toolkit - contribute responsibly.

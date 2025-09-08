@@ -5,79 +5,65 @@
 [![Algorithms](https://img.shields.io/badge/algorithms-10%2B-brightgreen)](#algorithms)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)](README.md)
 
-**Professional Digital Forensics & Steganography Analysis Tool**
+**Professional Digital Forensics and Steganography Analysis Tool**
 
-A comprehensive command-line toolkit for steganography analysis, digital forensics, and CTF challenges. Features 10+ detection algorithms, multi-language support, and professional output formatting for security professionals and researchers.
+Comprehensive command-line toolkit for steganography detection and digital forensics. Features 10+ detection algorithms with professional output formatting for security professionals and researchers.
 
-## Key Features
+## Core Features
 
-### Advanced Algorithm Support
-- **10+ Detection Algorithms**: LSB, DCT, DWT, F5, BPCS, Alpha Channel, JSteg, PVD, Histogram Shifting, and more
-- **Professional Analysis**: Advanced metadata parsing, statistical anomaly detection
-- **Archive Support**: ZIP, RAR, 7Z file analysis capabilities
-- **Hash Verification**: MD5, SHA-1, SHA-256 integrity checking
+**Algorithm Suite**: 10+ steganography detection algorithms including LSB, DCT, DWT, F5, BPCS, Alpha Channel, JSteg, PVD, Histogram, and Statistical analysis.
 
-### Professional Output System
-- **5 Output Styles**: Minimal, Detailed, Compact, Structured, Progressive
-- **Multi-Language**: English and Korean localization support
-- **Clean Interface**: Professional formatting without emoji clutter
-- **Configurable**: Persistent user preferences and settings
+**Professional Output**: Five distinct output styles (Minimal, Detailed, Compact, Structured, Progressive) with clean, professional formatting.
 
-### Modern Architecture
-- **Single Command**: Simple `python analyze.py image.png` usage
-- **Modular Design**: Clean separation of algorithms and core systems
-- **Cross-Platform**: Windows, macOS, Linux support
-- **Performance Optimized**: Efficient analysis with comprehensive reporting
+**Multi-Language**: English and Korean localization support.
 
-## Algorithms
+**Hash Verification**: MD5, SHA-1, SHA-256 integrity checking.
 
-The toolkit includes comprehensive steganography detection algorithms:
+**Archive Analysis**: ZIP, RAR, 7Z file examination capabilities.
 
-- **LSB (Least Significant Bit)**: Basic bit-plane analysis
+**Single Command Interface**: Simple `python analyze.py image.png` usage.
+
+## Installation
+
+```bash
+git clone https://github.com/ryujaegwang/steganography-cli-toolkit.git
+cd steganography-cli-toolkit
+pip install -r requirements.txt
+```
+
+## Usage
+
+```bash
+# Basic analysis
+python analyze.py image.png
+
+# Detailed output
+python analyze.py image.png --style detailed
+
+# Compact format
+python analyze.py image.png --style compact
+
+# Korean language
+python analyze.py image.png --lang korean
+```
+
+## Detection Algorithms
+
+- **LSB (Least Significant Bit)**: Bit-plane analysis
 - **DCT (Discrete Cosine Transform)**: JPEG coefficient analysis  
-- **DWT (Discrete Wavelet Transform)**: Multi-level wavelet decomposition
+- **DWT (Discrete Wavelet Transform)**: Wavelet decomposition analysis
 - **F5**: JPEG matrix encoding detection
 - **BPCS (Bit-Plane Complexity Segmentation)**: Complexity-based detection
 - **Alpha Channel**: PNG transparency analysis
 - **JSteg**: JPEG coefficient modification detection
 - **PVD (Pixel Value Differencing)**: Pixel difference analysis
-- **Histogram Shifting**: Histogram modification detection
-- **Statistical Analysis**: Entropy and distribution analysis
-
-## Quick Start
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/ryujaegwang/steganography-cli-toolkit.git
-cd steganography-cli-toolkit
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### Basic Usage
-
-```bash
-# Analyze single image (default: minimal style, English)
-python analyze.py image.png
-
-# Use different output styles
-python analyze.py image.png --style detailed
-python analyze.py image.png --style compact
-
-# Multi-language support
-python analyze.py image.png --lang korean
-
-# Comprehensive analysis
-python analyze.py image.png --comprehensive
-```
+- **Histogram**: Histogram modification detection
+- **Statistical**: Entropy and distribution analysis
 
 ## System Requirements
 
 - **Python**: 3.8 or higher
-- **Memory**: 4GB RAM minimum, 8GB recommended
+- **Memory**: 4GB RAM minimum
 - **Platform**: Windows 10+, macOS 10.15+, Linux (Ubuntu 18.04+)
 
 ### Dependencies
@@ -92,127 +78,91 @@ rarfile>=4.0          # RAR archive support
 py7zr>=0.20.0         # 7Z archive support
 ```
 
+## Output Styles
+
+**Minimal**: Essential results only, ideal for quick analysis.
+
+**Detailed**: Comprehensive analysis with technical details and algorithm-specific findings.
+
+**Compact**: Space-efficient tabular format, suitable for batch processing.
+
+**Structured**: JSON-compatible hierarchical output, machine-readable format.
+
+**Progressive**: Step-by-step analysis with real-time progress indication.
+
 ## Project Structure
 
 ```
 steganography-cli-toolkit/
-├── analyze.py                # Main analysis script
-├── config/                   # Configuration management
-│   ├── config.py            # Settings and preferences
-│   └── localization.py      # Multi-language support
-├── core/                     # Core analysis engine
-│   └── comprehensive_analyzer.py  # Main analysis coordinator
-├── algorithms/               # Algorithm implementations
-│   ├── lsb_analyzer.py      # LSB detection
-│   ├── dct_analyzer.py      # DCT analysis
-│   ├── dwt_analyzer.py      # DWT analysis
-│   ├── f5_analyzer.py       # F5 detection
-│   ├── bpcs_analyzer.py     # BPCS analysis
-│   ├── alpha_analyzer.py    # Alpha channel analysis
-│   ├── jsteg_analyzer.py    # JSteg detection
-│   ├── pvd_analyzer.py      # PVD analysis
-│   └── histogram_analyzer.py # Histogram analysis
-├── output/                   # Output formatting
-│   └── output_formatter.py  # Multi-style formatting
-├── examples/                 # Test images and samples
-└── requirements.txt         # Python dependencies
+├── analyze.py                    # Main analysis script
+├── algorithms/                   # Detection algorithm implementations
+│   ├── lsb_analyzer.py          # LSB detection
+│   ├── dct_analyzer.py          # DCT analysis
+│   ├── dwt_analyzer.py          # DWT analysis
+│   ├── f5_analyzer.py           # F5 detection
+│   ├── bpcs_analyzer.py         # BPCS analysis
+│   ├── alpha_analyzer.py        # Alpha channel analysis
+│   ├── jsteg_analyzer.py        # JSteg detection
+│   ├── pvd_analyzer.py          # PVD analysis
+│   ├── histogram_analyzer.py    # Histogram analysis
+│   └── statistical_analyzer.py # Statistical analysis
+├── core/                        # Core analysis engine
+│   ├── comprehensive_analyzer.py # Main analysis coordinator
+│   ├── exceptions.py            # Exception handling
+│   ├── localization.py          # Multi-language support
+│   └── metadata.py              # Metadata analysis
+├── requirements.txt             # Python dependencies
+├── CONTRIBUTING.md              # Contribution guidelines
+└── LICENSE                      # MIT License
 ```
 
-## Output Styles
+## Architecture
 
-The toolkit supports 5 professional output styles:
+**Modular Design**: Clean separation between algorithms, core engine, and output formatting.
 
-### Minimal (Default)
-- Clean, concise results
-- Essential information only
-- Perfect for quick analysis
+**Single Entry Point**: All functionality accessible through `analyze.py`.
 
-### Detailed
-- Comprehensive analysis reports
-- Algorithm-specific findings
-- Technical details and metrics
+**Algorithm Independence**: Each detection algorithm operates independently with standardized output format.
 
-### Compact
-- Space-efficient formatting
-- Tabular data presentation
-- Ideal for batch processing
-
-### Structured
-- JSON-compatible output
-- Hierarchical data organization
-- Machine-readable format
-
-### Progressive
-- Step-by-step analysis display
-- Real-time progress indication
-- Interactive analysis experience
-
-## Configuration
-
-The toolkit maintains user preferences in a configuration file:
-
-```bash
-# View current configuration
-python analyze.py --show-config
-
-# Set default output style
-python analyze.py --set-style detailed
-
-# Set default language
-python analyze.py --set-lang korean
-
-# Reset to defaults
-python analyze.py --reset-config
-```
-
-## Version 5.0 Updates
-
-### New Features
-- **10+ Algorithms**: Expanded from 4 to 10+ detection algorithms
-- **Professional Output**: 5 distinct formatting styles with clean, professional appearance
-- **Multi-Language**: Full English and Korean localization support
-- **Archive Analysis**: ZIP, RAR, 7Z file analysis capabilities
-- **Hash Verification**: MD5, SHA-1, SHA-256 integrity checking
-- **Configuration System**: Persistent user preferences and settings
-- **Simplified CLI**: Single-command usage with intuitive options
-
-### Architecture Improvements
-- **Modular Design**: Clean separation of algorithms, core system, and output formatting
-- **Professional Interface**: Removed emoji clutter for serious security work
-- **Performance Optimization**: Streamlined analysis pipeline
-- **Error Handling**: Robust exception handling and graceful degradation
-- **Code Quality**: Comprehensive refactoring for maintainability
-
-### Breaking Changes
-- Command line interface changed from `v4_main.py` to `analyze.py`
-- Output format standardized across all algorithms
-- Configuration system replaces command-line flags for persistent settings
+**Extensible**: New algorithms can be added by implementing the standard analyzer interface.
 
 ## Educational Use
 
-Perfect for:
-- **Digital Forensics Training**: Professional-grade analysis techniques
-- **Security Research**: Advanced steganography detection methods
-- **Academic Projects**: Well-documented, production-quality codebase
-- **CTF Preparation**: Comprehensive algorithm coverage
+Suitable for:
+- Digital forensics training
+- Security research and development
+- Academic cybersecurity projects
+- CTF preparation and practice
+
+## Professional Applications
+
+Designed for:
+- Digital forensics investigations
+- Security analysis workflows
+- Authorized penetration testing
+- Research and development
+
+## Version 5.0 Updates
+
+**Architecture Refactor**: Complete redesign from v4.0 with simplified, professional interface.
+
+**Algorithm Expansion**: Increased from 4 to 10+ detection algorithms.
+
+**Output System**: Five professional output styles replacing emoji-based formatting.
+
+**Multi-Language**: Full English and Korean localization support.
+
+**Performance**: Optimized analysis pipeline with efficient resource usage.
+
+**Professional Interface**: Clean CLI design suitable for enterprise environments.
 
 ## Contributing
 
-Contributions welcome! Please ensure:
-- Code follows existing style conventions
-- New algorithms include comprehensive tests
-- Documentation updated for new features
-- Localization strings added for both languages
+Contributions welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on code style, testing requirements, and submission process.
 
-## Security & Ethics
+## Security and Ethics
 
-This tool is designed for:
-- Defensive security research
-- Digital forensics investigation
-- Educational purposes
-- Authorized security testing
-
-Please use responsibly and in accordance with applicable laws and regulations.
+This tool is designed for defensive security research, digital forensics investigation, and educational purposes. Use responsibly and in accordance with applicable laws and regulations.
 
 ## License
 
@@ -221,8 +171,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 - **Issues**: [GitHub Issues](https://github.com/ryujaegwang/steganography-cli-toolkit/issues)
-- **Documentation**: See examples directory for usage samples
+- **Documentation**: See CONTRIBUTING.md for development guidelines
 
----
-
-**Professional steganography analysis for security researchers**
+Professional steganography analysis for security professionals.

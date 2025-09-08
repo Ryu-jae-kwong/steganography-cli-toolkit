@@ -19,11 +19,6 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
-
-# PyInstaller
-*.manifest
-*.spec
 
 # Virtual environments
 venv/
@@ -45,25 +40,24 @@ ENV/
 ehthumbs.db
 Thumbs.db
 
-# Analysis outputs
-output/
-temp/
-cache/
+# Analysis results
+analysis_results/
+temp_analysis/
 *.log
 *.tmp
 
-# Test files
+# Test images (if any added)
 test_images/
-temp_files/
-*.png.stego
-*.jpg.stego
+sample_images/
+*.png.analyzed
+*.jpg.analyzed
 
 # Sensitive data
 *.key
 *.pem
-secrets/
+config/secrets/
 
-# Coverage
+# Coverage and testing
 .coverage
 htmlcov/
 .tox/
